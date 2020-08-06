@@ -9,7 +9,7 @@ def buildingJobs = Jenkins.instance.getAllItems(Job.class).findAll {
 
 properties(
     [
-        pipelineTriggers([cron('* * * * *')]),
+        pipelineTriggers([cron('*/5 * * * *')]),
     ]
 )
 
