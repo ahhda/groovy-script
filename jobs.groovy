@@ -7,6 +7,12 @@ def buildingJobs = Jenkins.instance.getAllItems(Job.class).findAll {
   it.isBuilding()
 }
 
+properties(
+    [
+        pipelineTriggers([cron('* * * * *')]),
+    ]
+)
+
 buildingJobs.each { job ->
   allRuns = job.getBuilds()
 
